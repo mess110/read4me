@@ -7,6 +7,7 @@ The goal is to have 1 control panel and 3 worker nodes.
 
 The project should have 2 APIs, workers, logging and a frontend.
 
+```markdown
 fontend should be served on port 80 and 443 (later with lets encrypt)
 /api
   /users-api
@@ -14,10 +15,12 @@ fontend should be served on port 80 and 443 (later with lets encrypt)
     GET /users/{id} - returns a json with user
   /books-api
     GET /books - returns a json with books
+```
 
 frontend calls /api routes
 
 The whole setup should be as automatic as possible.
+
 There should be a kube dashboard
 
 ## Install
