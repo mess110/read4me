@@ -19,3 +19,6 @@ run_docker_users:
 	docker run \
 		--publish=3000:3000 \
 		users_api_server:latest
+
+load_in_cluster: build_docker_users build_docker_books
+	kind load docker-image users_api_server:latest books_api_server:latest --name=read4me-local

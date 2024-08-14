@@ -29,7 +29,17 @@ There should be a kube dashboard
 * [ ] kind
 * [ ] terraform
 
-## Steps
+## Steps (in random order)
 
-1. [ ] provision-local-cluster
-2. [ ] provision-k8-dashboard
+1. [x] provision-kind-cluster
+1. [x] provision-k8-dashboard
+1. [x] provision-api-server
+1. [ ] lets encrypt
+1. [ ] redirect http to https
+1. [ ] connect to DB
+1. [ ] show UI
+1. [ ] create worker nodes
+1. [x] build generic API server
+1. [ ] provision-gke-cluster
+1. [ ] handle logging
+1. [ ] terraform deploy

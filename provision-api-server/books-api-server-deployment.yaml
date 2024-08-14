@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: books-api-server-deployment
+  name: books-api-server-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: books-api-server-deployment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: books-api-server-deployment
+    spec:
+      containers:
+        - image: books_api_server:latest
+          imagePullPolicy: Never # or IfNotPresent
+          name: books-api-server
+          ports:
+            - containerPort: 3000
+          resources: {}
+status: {}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: books-api-server-service
+  labels:
+    app: books-api-server-deployment
+spec:
+  selector:
+    app: books-api-server-deployment
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
