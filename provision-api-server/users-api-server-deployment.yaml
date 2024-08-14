@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - image: users_api_server:latest
-          imagePullPolicy: Never # or IfNotPresent
+          imagePullPolicy: IfNotPresent # or Never
           name: users-api-server
           ports:
             - containerPort: 3000

@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - image: books_api_server:latest
-          imagePullPolicy: Never # or IfNotPresent
+          imagePullPolicy: IfNotPresent # or Never
           name: books-api-server
           ports:
             - containerPort: 3000
