@@ -9,14 +9,14 @@ variable "region" {
   description = "region"
 }
 
-variable "credentials" {
+variable "credentials_json_path" {
   description = "credentials"
 }
 
 provider "google" {
   project     = var.project_id
   region      = var.region
-  credentials = var.credentials
+  credentials = file(var.credentials_json_path)
 }
 
 # VPC
