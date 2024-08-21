@@ -1,6 +1,9 @@
 # README
 
 ```sh
+gcloud init
+gcloud auth application-default login
+gcloud container clusters get-credentials $(terraform output -raw kubernetes_cluster_name) --region $(terraform output -raw region)
 gcloud config get-value project
 
 # terraform.tfvars
@@ -11,5 +14,11 @@ terraform init
 terraform apply
 
 # configure kubectl
-gcloud container clusters get-credentials $(terraform output -raw kubernetes_cluster_name) --region $(terraform output -raw region)
 ```
+
+When creating credentials, make sure to add the following roles:
+
+* Kubernetes Engine Admin
+* Editor
+* Service Account User
+* Service Account Admin

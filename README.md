@@ -25,6 +25,7 @@ There should be a kube dashboard
 
 ## Install
 
+* [ ] docker
 * [ ] kubectl
 * [ ] kind
 * [ ] terraform
@@ -43,3 +44,4 @@ There should be a kube dashboard
 1. [ ] provision-gke-cluster
 1. [ ] handle logging
 1. [ ] terraform deploy
+1. [ ] domain name

@@ -21,6 +21,10 @@ variable "disk_type" {
   description = "disk type"
 }
 
+variable "service_account" {
+  description = "service account"
+}
+
 # GKE cluster
 data "google_container_engine_versions" "gke_version" {
   location       = var.region
@@ -30,6 +34,7 @@ data "google_container_engine_versions" "gke_version" {
 resource "google_container_cluster" "primary" {
   name     = "${var.project_id}-gke"
   location = var.region
+
 
   # We can't create a cluster with no node pool defined, but we want to only use
   # separately managed node pools. So we create the smallest possible default
@@ -41,7 +46,8 @@ resource "google_container_cluster" "primary" {
   subnetwork = google_compute_subnetwork.subnet.name
 
   node_config {
-    disk_type = var.disk_type
+    disk_type       = var.disk_type
+    service_account = var.service_account
   }
 }
 
@@ -55,6 +61,8 @@ resource "google_container_node_pool" "primary_nodes" {
   node_count = var.gke_num_nodes
 
   node_config {
+    service_account = var.service_account
+
     oauth_scopes = [
       "https://www.googleapis.com/auth/logging.write",
       "https://www.googleapis.com/auth/monitoring",

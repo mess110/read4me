@@ -1,5 +1,7 @@
 # Copyright (c) HashiCorp, Inc.
 # SPDX-License-Identifier: MPL-2.0
 
-project_id = "CHANGE_ME"
-region     = "us-central1"
+project_id      = "foo-000000"
+region          = "us-central1"
+service_account = "foo@bar-000000.iam.gserviceaccount.com"
+credentials     = file("file.json")
